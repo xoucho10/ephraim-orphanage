@@ -26,36 +26,51 @@ export default function Home() {
           </div>
         </div>
 
+        {/* NEW 10 PHOTOS HERO - REPLACES PLACEHOLDER */}
         <div className="relative">
           <div className="rounded-[2.5rem] bg-[#FFF2E5] p-2">
-            <div className="rounded-[2rem] bg-[#0A2233] h-[480px] grid place-items-center text-center p-8">
-              <div>
-                <p className="text-6xl">Children Photo Here</p>
-                <p className="text-[#FF8C1A] font-black mt-4">150+ CHILDREN</p>
-                <p className="text-white/50 text-xs mt-2">Add real hero photo to public folder later</p>
+            <div className="rounded-[2rem] overflow-hidden">
+              <img src="/hero1.jpg" alt="Ephraim children main" className="w-full h-[300px] object-cover" />
+              <div className="grid grid-cols-4 gap-2 p-2 bg-white">
+                <img src="/hero2.jpg" alt="child 2" className="h-[80px] w-full object-cover rounded-xl" />
+                <img src="/hero3.jpg" alt="child 3" className="h-[80px] w-full object-cover rounded-xl" />
+                <img src="/hero4.jpg" alt="child 4" className="h-[80px] w-full object-cover rounded-xl" />
+                <img src="/hero5.jpg" alt="child 5" className="h-[80px] w-full object-cover rounded-xl" />
               </div>
             </div>
           </div>
           <div className="absolute -bottom-6 -left-6 bg-[#FF8C1A] rounded-2xl px-6 py-4 shadow-xl">
-            <p className="font-black text-black text-sm">Psalms 22:6</p>
-            <p className="text-[10px] text-black/70">God defends the orphans</p>
+            <p className="font-black text-black text-sm">150+ CHILDREN</p>
+            <p className="text-[10px] text-black/70 font-bold">Psalms 22:6 - God defends orphans</p>
+          </div>
+          <div className="absolute -top-3 -right-3 bg-white rounded-full px-4 py-2 shadow-xl">
+            <p className="font-black text-[#0E2F44] text-[11px]">10 Real Photos Live</p>
           </div>
         </div>
       </section>
 
+      {/* NEW SECTION - SHOWS hero6 to hero10 */}
       <section className="bg-[#FFF2E5] py-14 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="font-black text-[#0E2F44]">Our Mission</h3>
-            <p className="text-[12px] text-gray-600 mt-2">To provide love, shelter, education and spiritual guidance to orphaned and vulnerable children.</p>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-black text-[#0E2F44] text-center">Real Moments From Our Home</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-6">
+            {[6,7,8,9,10].map(n=>(
+              <img key={n} src={`/hero${n}.jpg`} alt={`Ephraim ${n}`} className="h-[180px] w-full object-cover rounded-2xl" />
+            ))}
           </div>
-          <div>
-            <h3 className="font-black text-[#0E2F44]">Our Vision</h3>
-            <p className="text-[12px] text-gray-600 mt-2">A Uganda where no child is left to survive alone — every child thrives.</p>
-          </div>
-          <div>
-            <h3 className="font-black text-[#0E2F44]">Registered and Transparent</h3>
-            <p className="text-[12px] text-gray-600 mt-2">Fully registered charity. 100% of donations go to children welfare. See transparency page.</p>
+          <div className="grid md:grid-cols-3 gap-8 mt-10">
+            <div>
+              <h3 className="font-black text-[#0E2F44]">Our Mission</h3>
+              <p className="text-[12px] text-gray-600 mt-2">To provide love, shelter, education and spiritual guidance to orphaned and vulnerable children.</p>
+            </div>
+            <div>
+              <h3 className="font-black text-[#0E2F44]">Our Vision</h3>
+              <p className="text-[12px] text-gray-600 mt-2">A Uganda where no child is left to survive alone — every child thrives.</p>
+            </div>
+            <div>
+              <h3 className="font-black text-[#0E2F44]">Registered and Transparent</h3>
+              <p className="text-[12px] text-gray-600 mt-2">MTN MoMo 0752 748110 — 100% of donations go to children welfare.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -72,7 +87,7 @@ export default function Home() {
             <ProgramCard title="Skills Training" desc="Tailoring, farming, computer for older children to be self-reliant." />
           </div>
           <div className="text-center mt-8">
-            <Link href="/programs" className="text-[#FF8C1A] font-black text-sm">View All Programs</Link>
+            <Link href="/programs" className="text-[#FF8C1A] font-black text-sm">View All Programs →</Link>
           </div>
         </div>
       </section>

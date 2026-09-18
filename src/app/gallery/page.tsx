@@ -1,14 +1,13 @@
 export default function GalleryPage(){
-  const photos = Array.from({length:12}).map((_,i)=>i)
   return (
     <main className="bg-[#0E2F44] min-h-screen">
       <section className="py-14 px-6 text-center">
         <h1 className="text-4xl font-black text-white">Life at <span className="text-[#FF8C1A]">Ephraim Home</span></h1>
-        <p className="text-white/50 text-xs mt-2">Add real photos to public/gallery/ — name them 1.jpg to 12.jpg</p>
+        <p className="text-white/50 text-sm mt-2">10 real moments — 150+ children loved daily in Uganda</p>
       </section>
-      <div className="max-w-6xl mx-auto px-6 pb-14 grid grid-cols-2 md:grid-cols-3 gap-3">
-        {photos.map(n=>(
-          <div key={n} className="aspect-square rounded-2xl bg-[#FFF2E5] grid place-items-center text-[#0E2F44] font-bold text-xs">Photo {n+1}</div>
+      <div className="max-w-6xl mx-auto px-6 pb-14 grid grid-cols-2 md:grid-cols-5 gap-3">
+        {[1,2,3,4,5,6,7,8,9,10].map(n=>(
+          <img key={n} src={`/hero${n}.jpg`} alt={`Ephraim gallery ${n}`} className="h-[240px] w-full object-cover rounded-2xl hover:scale-[1.02] transition" />
         ))}
       </div>
     </main>
