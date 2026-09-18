@@ -107,17 +107,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROGRAMS - PREMIUM CARDS */}
+      {/* PROGRAMS - PREMIUM CLICKABLE LUXURY */}
       <section className="bg-[#0E2F44] py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-black text-white text-center">How Your Donation<br/><span className="text-[#FF8C1A]">Transforms Lives</span></h2>
-          <div className="grid md:grid-cols-3 gap-4 mt-12">
-            <ProgramCard title="Education $30/mo" desc="School fees, uniform, books. Keeps 1 child in class." />
-            <ProgramCard title="Food $10/week" desc="3 healthy meals daily for 1 child." />
-            <ProgramCard title="Healthcare" desc="Medicine, checkups for 47 kids + disabled girl." />
-            <ProgramCard title="Shelter & Love" desc="Rent, bedding, clothes, 24/7 mother care." />
-            <ProgramCard title="Faith — Psalms 22:6" desc="We raise children with hope and spiritual guidance." />
-            <ProgramCard title="Skills For Future" desc="Tailoring, farming, computer for self-reliance." />
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-black text-white leading-[0.9]">How Your Donation<br/><span className="text-[#FF8C1A]">Transforms Lives</span></h2>
+            <p className="mt-3 text-white/30 text-[10px] font-black tracking-[0.2em]">TAP ANY CARD TO DONATE INSTANTLY • 100% TO 47 CHILDREN</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5 mt-12">
+            <ProgramCard
+              title="Education $30/mo"
+              desc="School fees, uniform, books. Keeps 1 child in class. 13 kids currently out."
+            />
+            <ProgramCard
+              title="Food $10/week"
+              desc="3 healthy meals daily for 1 child. 21 meals that save life."
+            />
+            <ProgramCard
+              title="Healthcare"
+              desc="Medicine, checkups for 47 kids + special care for 1 disabled girl."
+            />
+            <ProgramCard
+              title="Shelter & Love"
+              desc="Rent, bedding, clothes, 24/7 mother care. Family, not facility."
+            />
+            <ProgramCard
+              title="Faith — Psalms 22:6"
+              desc="We raise children with hope and spiritual guidance. God defends orphans."
+            />
+            <ProgramCard
+              title="Skills For Future"
+              desc="Tailoring, farming, computer for self-reliance after 18."
+            />
           </div>
         </div>
       </section>
