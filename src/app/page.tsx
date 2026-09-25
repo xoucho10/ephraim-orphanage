@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
-import { ShieldCheck, ArrowRight, Play, Heart, X, Menu, MapPin, Phone, CheckCircle } from "lucide-react"
+import { ShieldCheck, ArrowRight, Play, Heart, X, MapPin, Phone, CheckCircle } from "lucide-react"
 import Image from "next/image"
 
 const heroImages = [
@@ -13,7 +13,6 @@ export default function Home() {
   const [count47, setCount47] = useState(0)
   const [realMoments, setRealMoments] = useState<string[]>([])
   const [lightbox, setLightbox] = useState<string|null>(null)
-  const [mobileMenu, setMobileMenu] = useState(false)
 
   useEffect(() => {
     const t = setInterval(() => setCurrent((c) => (c+1) % heroImages.length), 4500)
@@ -32,35 +31,9 @@ export default function Home() {
 
   return (
     <main className="bg-[#FFFDF9] text-[#102A3C] overflow-x-hidden">
-      {/* HEADER - FIXED VISIBILITY */}
-      <header className="fixed top-0 w-full z-[100] bg-[#0D2335]/90 backdrop-blur-xl border-b border-white/10">
-        <div className="max-w-[1280px] mx-auto px-4 lg:px-8 h-[64px] flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2.5">
-            <img src="/logo.png" alt="Ephraim" className="w-8 h-8 rounded bg-white p-1 object-contain" />
-            <span className="font-black text-white text-[12px] leading-[1] tracking-tight">EPHRAIM<br/><span className="text-[#FF8A1A]">ORPHANAGE HOME</span></span>
-          </a>
-          <nav className="hidden md:flex items-center gap-6 text-[12px] font-semibold text-white/70">
-            <a href="#" className="text-white">Home</a>
-            <a href="#about">About</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#donate">Get Involved</a>
-          </nav>
-          <div className="flex items-center gap-3">
-            <a href="#donate" className="hidden md:inline-flex bg-[#FF8A1A] text-[#102A3C] font-black text-[12px] px-5 py-2.5 rounded-full hover:bg-[#ff9a36]">Donate Now</a>
-            <button onClick={()=>setMobileMenu(!mobileMenu)} className="md:hidden text-white p-2">{mobileMenu? <X/> : <Menu/>}</button>
-          </div>
-        </div>
-        {mobileMenu && (
-          <div className="md:hidden bg-[#0D2335] border-t border-white/10 px-6 py-6 space-y-4 text-white">
-            <a href="#about" onClick={()=>setMobileMenu(false)}>About</a><br/>
-            <a href="#gallery" onClick={()=>setMobileMenu(false)}>Gallery</a><br/>
-            <a href="#donate" onClick={()=>setMobileMenu(false)} className="inline-block mt-2 bg-[#FF8A1A] text-[#102A3C] font-black px-6 py-3 rounded-full">Donate Now</a>
-          </div>
-        )}
-      </header>
 
-      {/* HERO - EDGE TO EDGE + MOBILE OPTIMIZED */}
-      <section className="relative h-[92vh] min-h-[600px] lg:min-h-[700px] w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden bg-[#102A3C] pt-[64px]">
+      {/* HERO - NO HEADER HERE, header is in components/Header.tsx */}
+      <section className="relative h-[92vh] min-h-[600px] lg:min-h-[700px] w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden bg-[#102A3C]">
         <div className="absolute inset-0">
           {heroImages.map((src, idx)=>(
             <div key={src} className={`absolute inset-0 transition-opacity duration-[1500ms] ${idx===current?'opacity-100':'opacity-0'}`}>
@@ -101,7 +74,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GALLERY - FIXED TYPO + LIGHTBOX + MOBILE 2 COLS */}
       <section id="gallery" className="bg-[#FEF6EC] py-12 lg:py-20">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
@@ -124,7 +96,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STORY - BIG NUMBERS ORANGE */}
       <section id="about" className="bg-white py-12 lg:py-24">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="grid grid-cols-[1.2fr_0.8fr] gap-3">
@@ -152,7 +123,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DONATION - CONVERTING */}
       <section id="donate" className="bg-[#102A3C] py-12 lg:py-20">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-8">
           <div className="text-center mb-10">
@@ -185,21 +155,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-[#08131E] text-white/60 py-10">
+      <footer className="bg-[#08131E] text-white/60 py-10 pb-[90px] md:pb-10">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-8 flex flex-col md:flex-row justify-between gap-6 text-[11px]">
           <div><div className="text-white font-black">EPHRAIM ORPHANAGE HOME</div><div className="mt-1 flex items-center gap-2"><MapPin size={12}/> Kampala, Uganda • Est. 2019</div><div className="mt-1 flex items-center gap-2"><Phone size={12}/> WhatsApp: 0752 748110</div></div>
-          <div className="text-right md:text-right">© 2026 Ephraim Orphanage. Built with ❤️ for 47 children.<br/>All donations go directly to children.</div>
+          <div className="md:text-right">© 2026 Ephraim Orphanage. Built with ❤️ for 47 children.<br/>All donations go directly to children.</div>
         </div>
       </footer>
 
-      {/* STICKY DONATE MOBILE */}
       <div className="fixed bottom-0 left-0 right-0 z-[90] md:hidden bg-white border-t p-3 flex gap-3">
         <a href="https://wa.me/256752748110" className="flex-1 bg-[#102A3C] text-white text-center font-black text-[12px] py-3.5 rounded-full">WhatsApp</a>
         <a href="#donate" className="flex-[1.5] bg-[#FF8A1A] text-[#102A3C] text-center font-black text-[12px] py-3.5 rounded-full">Donate $10 Now</a>
       </div>
 
-      {/* LIGHTBOX */}
       {lightbox && (
         <div className="fixed inset-0 z-[200] bg-black/90 p-4 flex items-center justify-center" onClick={()=>setLightbox(null)}>
           <button className="absolute top-4 right-4 text-white bg-white/10 p-2 rounded-full"><X/></button>
